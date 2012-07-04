@@ -45,7 +45,9 @@ The GameObject name and CallBackMethod names should be passed a string. CallBack
 
 - Once you have build the project for XCode. To Add the SDK files Right Click on classes folder in Unity-iPhone and Click Add Files..
 
-Navigate to the Assets->Plugins->FAADiOS and select "SDK" folder add it to the project. make sure that "Create groups for any added folders" is selected
+- Navigate to the Assets->Plugins->FAADiOS and select "SDK" folder add it to the project.
+
+- Make sure that "Create groups for any added folders" is selected
 
 - Add Systemconfiguration Frame work and libsqlite3.0.dylib to your project.
 
