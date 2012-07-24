@@ -60,9 +60,9 @@ static FAADConnectWebService *sharedConnectWebService_ = nil;
 - (NSString *)createRestFullUrlWithParameters:(NSDictionary *)params{
 	
 	NSString *restfullURL = [NSString stringWithFormat:@"%@",kFAADConnectURL];
-	
-	restfullURL = [restfullURL stringByAppendingFormat:@"/%@/%@/%d/%@?%@=%@&%@=%@&%@=%@",[params objectForKey:@"udid"],
-							 [params objectForKey:@"appIntegrationKey"],[[params objectForKey:@"isBeta"] intValue],[params objectForKey:@"hashCode"],kFAADCountryCode,[params objectForKey:kFAADCountryCode],kFAADVersion,kFAADLibraryVersion,kMacAddress,[params objectForKey:kMacAddress]];
+    
+	restfullURL = [restfullURL stringByAppendingFormat:@"/%@/%@/%d/%@?%@=%@&%@=%@&%@=%@&%@=%@",[params objectForKey:@"udid"],
+                   [params objectForKey:@"appIntegrationKey"],[[params objectForKey:@"isBeta"] intValue],[params objectForKey:@"hashCode"],kFAADCountryCode,[params objectForKey:kFAADCountryCode],kFAADVersion,kFAADLibraryVersion,kMacAddress,[params objectForKey:kMacAddress],kDeviceType,[params objectForKey:kDeviceType]];
 	NSLog(@"the connect url is %@",restfullURL);
 	return restfullURL;
 

@@ -43,16 +43,17 @@ static FAADNetwork *sharedFAADNetwork_ = nil;
 	NSString *identifier = [OpenUDID value];
     NSString *macAddress = [device getMacAddress];
   //  NSLog(@"the mac address is %@",macAddress);
-	//	NSString *model = [device model];
+    NSString *model = [device model];
 	//	NSString *systemVersion = [device systemVersion];
 	//	NSString *deviceName = [device platformString];
-	//	NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+	//	NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)NSLog(@"the device name is %@",model);
+    model = [model stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //	NSString *bundleVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
 	NSString *hashCode =[FAADUtility getMD5hashCode:[NSString stringWithFormat:@"%@%@%@",identifier,[self integrationKey],[self secretKey]]];
 	NSMutableDictionary *parameters = [[NSMutableDictionary alloc]
                                        initWithObjectsAndKeys:hashCode,kHashCode,
                                        identifier,kDeviceId,
-                                       [self integrationKey],kAppIntegrationKey,countryCode,kFAADCountryCode,macAddress,kMacAddress,nil];
-	
+                                       [self integrationKey],kAppIntegrationKey,countryCode,kFAADCountryCode,macAddress,kMacAddress,model,kDeviceType,nil];
 	return [parameters autorelease];
 	
 }
